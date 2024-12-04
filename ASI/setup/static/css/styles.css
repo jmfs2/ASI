@@ -1,0 +1,170 @@
+/* Importando a fonte do Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
+/* Configuração básica do corpo */
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7fc; /* Cor de fundo suave */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh; /* Garantir que ocupe 100% da altura da tela */
+    text-align: center; /* Centraliza o texto */
+    box-sizing: border-box; /* Incluir padding e border no tamanho total */
+    overflow: auto; /* Adicionar rolagem se necessário */
+}
+
+/* Container principal */
+.container {
+    width: 100%;
+    max-width: 600px;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px; /* Bordas arredondadas */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras sutis */
+    box-sizing: border-box; /* Garantir que o padding seja contado */
+    max-height: 90vh; /* Limitar altura da container */
+    overflow-y: auto; /* Adicionar rolagem vertical se o conteúdo exceder a altura */
+}
+
+/* Estilo para o título */
+h1 {
+    font-size: 2.5em;
+    color: #2980b9; /* Azul para o título */
+    margin-bottom: 20px;
+    word-wrap: break-word; /* Quebra de linha automática se necessário */
+}
+
+/* Estilo dos campos de input e textarea */
+input[type="text"], input[type="number"], textarea {
+    width: 100%;
+    padding: 12px;
+    margin: 8px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1em;
+    box-sizing: border-box; /* Inclui padding e borda no tamanho total */
+    background-color: #f9f9f9; /* Cor de fundo suave para inputs */
+}
+
+textarea {
+    resize: vertical; /* Permite redimensionar a altura do textarea */
+}
+
+/* Estilo para o título e rótulos dos campos de entrada */
+label {
+    font-weight: 500;
+    color: #333;
+    text-align: left;
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* Estilo para o formulário */
+form {
+    margin-bottom: 20px;
+}
+
+/* Container para os botões */
+.button-container {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Espaçamento entre os botões */
+}
+
+/* Estilo dos botões */
+.btn {
+    background-color: #2980b9; /* Azul para o botão */
+    color: white;
+    text-decoration: none;
+    padding: 12px 25px;
+    border-radius: 30px; /* Bordas arredondadas */
+    font-size: 16px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s, transform 0.2s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Sombras sutis nos botões */
+}
+
+.btn:hover {
+    background-color: #3498db; /* Azul mais claro ao passar o mouse */
+    transform: scale(1.05); /* Aumento suave */
+}
+
+/* Ícones dos botões */
+.icon {
+    margin-right: 10px;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .container {
+        padding: 15px;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    /* Ajusta o tamanho das fontes e botões em telas menores */
+    .btn {
+        font-size: 14px;
+        padding: 10px 20px;
+    }
+
+    /* Ajuste para campos de input menores em telas pequenas */
+    input[type="text"], input[type="number"], textarea {
+        font-size: 1em;
+        padding: 10px;
+    }
+}
+
+/* Linha de separação entre as defesas */
+.defesa-separator {
+    border: 0;
+    border-top: 2px dashed #ccc; /* Linha tracejada cinza */
+    margin: 20px 0;
+}
+
+/* Estilo para a área do texto de multa */
+.defesa-item p {
+    font-size: 1.1em; /* Tamanho da fonte maior para melhorar a leitura */
+    line-height: 1.6; /* Maior espaçamento entre as linhas para melhor legibilidade */
+    margin-bottom: 20px; /* Espaço abaixo de cada parágrafo */
+}
+
+/* Destacar os títulos de cada parte */
+.defesa-item strong {
+    font-weight: bold;
+    color: #2980b9; /* Cor azul para destacar os itens importantes */
+}
+
+/* Estilo de comentário */
+.defesa-item em {
+    font-style: italic;
+    color: #555; /* Cor mais suave para a descrição da infração */
+}
+
+/* Separação entre as defesas */
+.defesa-separator {
+    border: 0;
+    border-top: 2px solid #ccc; /* Linha sólida entre as defesas */
+    margin: 40px 0; /* Margem maior para dar espaçamento entre as defesas */
+}
+
+/* Botões de navegação */
+.button-container .btn {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #2980b9;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+.button-container .btn:hover {
+    background-color: #1a6f94;
+}

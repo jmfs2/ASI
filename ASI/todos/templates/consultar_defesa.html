@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consultar Defesa</title>
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Font Awesome -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap" rel="stylesheet"> <!-- Roboto -->
+</head>
+<body>
+    <div class="container">
+        <h1>Consultar Defesa</h1>
+
+        {% if defesas %}
+            <!-- Exibe o número de defesas encontradas -->
+            <h2>Defesas Encontradas ({{ defesas|length }})</h2>
+            
+            <!-- Exibe as informações formais de cada defesa -->
+            <div class="defesas-lista">
+                {% for defesa in defesas %}
+                    <div class="defesa-item">
+                        <p>
+                            O motorista <strong>{{ defesa.nome_motorista }}</strong> foi autuado por infração de trânsito, registrada sob o número <strong>{{ defesa.numero_infracao }}</strong>. A infração foi registrada pelo agente de trânsito <strong>{{ defesa.id_agente_transito }}</strong>, que descreveu a infração da seguinte forma: <em>{{ defesa.descricao }}</em>.
+                        </p>
+                        <p>
+                            Seguem as informações detalhadas do veículo envolvido na infração:
+                            <br><strong>Placa do veículo:</strong> {{ defesa.placa_veiculo }}
+                            <br><strong>Modelo do veículo:</strong> {{ defesa.modelo_veiculo }}
+                            <br><strong>Ano do veículo:</strong> {{ defesa.ano_veiculo }}
+                        </p>
+                        <p>
+                            O <strong>ID da multa</strong> é <strong>{{ defesa.multa_id }}</strong> e a <strong>localização da infração</strong> ocorreu em <strong>{{ defesa.local_infracao }}</strong>.
+                        </p>
+                        <p><strong>Comentários:</strong> {{ defesa.comentarios|default:"Não há comentários adicionais." }}</p>
+                        <p><strong>Status:</strong> {{ defesa.status }}</p>
+                    </div>
+
+                    <!-- Linha de separação entre as defesas -->
+                    <hr class="defesa-separator">
+                {% endfor %}
+            </div>
+
+            <!-- Botões de navegação -->
+            <div class="button-container">
+                <a href="{% url 'home' %}" class="btn">Voltar para a Página Inicial</a>
+                <a href="{% url 'registrar_defesa' %}" class="btn">Registrar Outra Defesa</a>
+            </div>
+
+        {% else %}
+            <!-- Exibe o formulário apenas se nenhuma defesa for encontrada -->
+            <form method="GET">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn">Consultar</button>
+            </form>
+            <p>Nenhuma defesa encontrada para os critérios selecionados.</p>
+        {% endif %}
+    </div>
+</body>
+</html>
